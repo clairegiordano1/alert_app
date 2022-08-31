@@ -1,1 +1,1 @@
-# npm start to view my alert application!
+# npm start to view my alert application
