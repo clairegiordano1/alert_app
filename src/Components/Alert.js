@@ -19,25 +19,25 @@ export const Alert =  ({alert, alerts, setAlerts, colorScheme}) => {
     useEffect(() => {
         const decrementAlertInterval = setInterval(() => {
             setAlertTimeInterval((currentTime) => {
-                //current interval hasn't been given a value yet 
+                // current interval hasn't been given a value yet 
                 // (give it alerts initial time limit value)
                 if (currentTime === null){
                     return alert.timeLimit;
                 }
-                //current interval has reached 0
+                // current interval has reached 0
                 // (remove alert from state)
                 if (currentTime ===0 || alertTimeInterval === undefined){
                     let newAlerts = alerts.filter((currentAlert) => currentAlert.id !== alert.id)
                     setAlerts(newAlerts)
                     return;
                 }
-                //current interval has beem interupted by other alerts' set interval method
+                // current interval has been interupted by other alerts
                 // (provide the last value before interruption)
                 if (currentTime === undefined){
                     return alertTimeInterval;
                 }
                 else {
-                //decrement current time to display on alert card
+                //decrement current value to display on alert card
                     return currentTime-1
                 }
             })
